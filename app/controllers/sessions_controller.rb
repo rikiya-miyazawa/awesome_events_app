@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
-  
-
+  skip_before_action :authenticate, only: :create
   def create
     #request.env["omniauth.auth"]というHashに似たOmniAuth::AuthHashクラスのオブジェクトを利用
     #GitHubから渡されたユーザ情報や、OAuthのアクセストークンなどが格納されている
