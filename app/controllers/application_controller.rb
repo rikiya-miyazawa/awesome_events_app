@@ -9,4 +9,11 @@ class ApplicationController < ActionController::Base
     #session[:user_id]がfalseまたはnilの時はfalseを、それ以外の値の時はtrueへ変換する
     !!session[:user_id]
   end
+
+  def current_user
+    return unless session[:user_id]
+    @current_user ||= User.find(session[:user_id])
+  end
+
+  
 end
