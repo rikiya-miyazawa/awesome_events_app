@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  
 
   def create
     #request.env["omniauth.auth"]というHashに似たOmniAuth::AuthHashクラスのオブジェクトを利用
