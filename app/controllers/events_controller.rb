@@ -8,7 +8,7 @@ class EventsController < ApplicationController
   def create
     @event = current_user.created_events.build(event_params)
 
-    if @events.save
+    if @event.save
       redirect_to @event, notice: "作成しました"
     end
   end
