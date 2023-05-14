@@ -1,16 +1,21 @@
 class EventsController < ApplicationController
+  skip_before_action :authenticate, only: :show
 
-  def new
+  def new  #イベント作成機能
     #ログインユーザが作成したイベントを@event変数に代入する
     @event = current_user.created_events.build
   end
 
-  def create
+  def create  #イベント保存機能
     @event = current_user.created_events.build(event_params)
 
     if @event.save
       redirect_to @event, notice: "作成しました"
     end
+  end
+
+  def show  #イベント閲覧機能
+    @event = Event.find(params[:id])
   end
 
   private
