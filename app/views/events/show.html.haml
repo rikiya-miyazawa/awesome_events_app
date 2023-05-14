@@ -14,6 +14,6 @@
 .card.mb-2
   %h5.card-header 主催者
   .card-body
-    =link_to("https://github.com/#{@event.owner.name}", class: "card-link") do
-      =image_tag @event.owner.image_url, width: 50, height: 50
-      ="@#{@event.owner.name}"
+    = link_to("https://github.com/#{@event.owner.name}", class: "card-link") do
+      = image_tag @event.owner.image_url, width: 50, height: 50
+      = "@#{@event.owner.name}"
