@@ -6,6 +6,12 @@ class Event < ApplicationRecord
   validates :start_at, presence: true
   validates :end_at, presence: true
   validate :start_at_should_be_before_end_at
+  
+  #ログインユーザが閲覧しているイベントの作成者かどうかチェックする
+  def created_by?(user)  #viewでcurrent_userの値が送られてくる
+    return false unless user  #ユーザがnil(つまり未ログイン)の場合falseを返す
+    owner_id == user.id  #ユーザのidとイベントのオーナーのidが一致していればtrue、一致しなければfalseを返す
+  end
 
   private
 
