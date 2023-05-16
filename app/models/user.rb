@@ -3,6 +3,7 @@ class User < ApplicationRecord
   #モデル名以外の名前を関連名に使用したのでclass_nameオプションでクラス名を指定
   #外部キーもデフォルトの「user_id」ではないのでforeign_keyオプションで外部キー(owner_id)を指定
   has_many :created_events, class_name: "Event", foreign_key: "owner_id"
+  has_many :tickets
   def self.find_or_create_from_auth_hash!(auth_hash)
     provider = auth_hash[:provider]
     uid = auth_hash[:uid]
