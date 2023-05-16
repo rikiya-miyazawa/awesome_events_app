@@ -16,6 +16,7 @@ class EventsController < ApplicationController
 
   def show  #イベント閲覧機能
     @event = Event.find(params[:id])
+    @tickets = @event.tickets.includes(:user).order(:created_at)
   end
 
   def edit
