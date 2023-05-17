@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   #それをログイン用のアクションと紐付ける
   get "/auth/:provider/callback" => "sessions#create"
   delete "/logout" => "sessions#destroy"
+  resource :retirements
   resources :events do
     resources :tickets
   end
